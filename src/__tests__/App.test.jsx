@@ -6,6 +6,7 @@ beforeEach(() => {
   // Mock fetch to return a test joke
   global.fetch = vi.fn(() =>
     Promise.resolve({
+      ok: true,
       json: () =>
         Promise.resolve({ joke: 'Why do programmers prefer dark mode?' }),
     })
@@ -53,6 +54,7 @@ test('App component > fetches a new joke when button is clicked', async () => {
 
   // Mock fetch for new joke
   global.fetch.mockResolvedValueOnce({
+    ok: true,
     json: () => Promise.resolve({ joke: 'Another programming joke!' }),
   })
 
